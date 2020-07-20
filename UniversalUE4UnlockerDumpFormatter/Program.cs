@@ -50,7 +50,7 @@ namespace UniversalUE4UnlockerDumpFormatter {
 
             StreamReader file = new StreamReader(path);
             while ((line = file.ReadLine()) != null) {
-                lineSplit = line.Split(" ");
+                lineSplit = line.Split(" ", 4);
                 type = lineSplit[2];
                 locationArr = lineSplit[3].Split(".");
                 AddData(data, locationArr, type);
@@ -69,7 +69,7 @@ namespace UniversalUE4UnlockerDumpFormatter {
         }
 
         static List<string> CustomFormat(SortedList<string, dynamic> data, int depth = 0) {
-            List <string> output = new List<string>();
+            List<string> output = new List<string>();
             for (int i = 0; i < data.Count; i++) {
                 output.Add("");
                 for (int j = 0; j < depth; j++) {
